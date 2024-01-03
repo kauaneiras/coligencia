@@ -1,18 +1,10 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import HomePage from './pages/HomePage';
-import React from 'react';
-import { ThemeProvider } from './context/ThemeContext';
+import styled from "styled-components";
+import React, {useState} from "react";
+import Inicio from "./pages/0Inicio";
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <ThemeProvider>
-        <Router>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-          </Routes>
-        </Router>
-      </ThemeProvider>
-    );
-  }
+export default function App() {
+
+  return (
+      <Inicio />
+  );
 }
