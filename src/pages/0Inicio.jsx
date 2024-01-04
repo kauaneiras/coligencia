@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
+
 import WavesBackground from '../assets/backgrounds/BackgroundWave';
 
-export default function Inicio() {
-  const [color, setColor] = useState(localStorage.getItem('color') || 'ffffff');
-  const [hoverColor, setHoverColor] = useState(null);
-
-  useEffect(() => {
-    localStorage.setItem('color', color);
-  }, [color]);
+export default function Inicio({color, setColor, hoverColor, setHoverColor}) {
+  const navigate = useNavigate();
 
   const handleMouseEnter = (newColor) => {
     setHoverColor(newColor);
@@ -16,6 +13,10 @@ export default function Inicio() {
 
   const handleMouseLeave = () => {
     setHoverColor(null);
+  };
+
+  const NavigateToSobreMim = () => {
+    navigate('/sobre-mim');
   };
 
   return (
@@ -35,9 +36,8 @@ export default function Inicio() {
           <Color onMouseEnter={() => handleMouseEnter('E00869')} onMouseLeave={handleMouseLeave} onClick={() => setColor('E00869')} color='E00869' selected={color === 'E00869'} />
           <Color onMouseEnter={() => handleMouseEnter('CF1101')} onMouseLeave={handleMouseLeave} onClick={() => setColor('CF1101')} color='CF1101' selected={color === 'CF1101'} />
           <Color onMouseEnter={() => handleMouseEnter('FCBB28')} onMouseLeave={handleMouseLeave} onClick={() => setColor('FCBB28')} color='FCBB28' selected={color === 'FCBB28'} />
-        
         </ColorsMenu>
-        <Continuar color={`#${hoverColor || color}`}>Continuar</Continuar>
+        <Continuar color={`#${hoverColor || color}`} onClick={()=> NavigateToSobreMim()}>Continuar</Continuar>
       </Main>
     </>
   );
@@ -57,7 +57,6 @@ const Main = styled.div`
 const BemVindo = styled.h1`
   font-size: 5em;
   font-weight: 1000;
-  margin-bottom: 1em;
   font-family: 'Roboto', sans-serif;
   color: ${props => props.color}; 
   text-align: center;

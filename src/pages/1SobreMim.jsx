@@ -1,41 +1,26 @@
+import React, {useState} from "react";
+import Navbar from "../components/NavBar";
 import styled from "styled-components";
-import React, {useEffect} from "react";
 
-export default function SobreMim() {
-  useEffect(() => {
-    const onScroll = () => {
-      // Algoritmo para detectar se esta seção está na visualização
-      // e então atualizar a URL.
-      // Este é um exemplo simplificado:
-      const section = document.getElementById('home');
-      const top = section.getBoundingClientRect().top;
-      if (top >= 0 && top < window.innerHeight) {
-        window.history.pushState("", "", "/home");
-      }
-    };
-    window.addEventListener('scroll', onScroll);
-  
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+export default function SobreMim(){
+  const [color, setColor] = useState(localStorage.getItem('color') || '000000');
+  console.log(color);
+
   return (
-    <Container>
-      <Main>
+    <Container color={color}>
+      <Navbar />
         <h1>Sobre Mim</h1>
-      </Main>
     </Container>
   );
 }
 
 const Container = styled.div`
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    background-color: ${props => (props.theme === 'dark' ? (props.theme.dark ? props.theme.dark.background : '') : (props.theme.light ? props.theme.light.background : ''))};
-`;
-
-const Main = styled.main`
-    flex: 1;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: black;
+    padding: 5%;
+    border: 5px solid #${props => props.color};
+    overflow: hidden;
 `;

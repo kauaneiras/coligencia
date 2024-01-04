@@ -4,9 +4,6 @@ import React, {useEffect} from "react";
 export default function Projetos() {
   useEffect(() => {
     const onScroll = () => {
-      // Algoritmo para detectar se esta seção está na visualização
-      // e então atualizar a URL.
-      // Este é um exemplo simplificado:
       const section = document.getElementById('home');
       const top = section.getBoundingClientRect().top;
       if (top >= 0 && top < window.innerHeight) {
