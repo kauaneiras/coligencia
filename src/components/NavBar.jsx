@@ -14,18 +14,13 @@ const NavBar = () => {
     <StyledCard color={color} tabIndex="0">
       <MenuIcon>☰</MenuIcon>
       <NavBarButtons>
+      <NavBarButton color={color} onClick={() => NavigateTo('/')}>Inicio</NavBarButton>
       <NavBarButton color={color} onClick={() => NavigateTo('/sobre-mim')}>Sobre Mim</NavBarButton>
       <NavBarButton color={color} onClick={() => NavigateTo('/habilidades')}>Habilidades</NavBarButton>
       <NavBarButton color={color} onClick={() => NavigateTo('/projetos')}>Projetos</NavBarButton>
       <NavBarButton color={color} onClick={() => NavigateTo('/experiencias')}>Experiências</NavBarButton>
       <NavBarButton color={color} onClick={() => NavigateTo('/formacao')}>Formação</NavBarButton>
       <NavBarButton color={color} onClick={() => NavigateTo('/contato')}>Contato</NavBarButton>
-
-      {/* <NavBarButton color={color}>Habilidades</NavBarButton>
-      <NavBarButton color={color}>Projetos</NavBarButton>
-      <NavBarButton color={color}>Experiências</NavBarButton>
-      <NavBarButton color={color}>Formação</NavBarButton>
-      <NavBarButton color={color}>Contato</NavBarButton> */}
       </NavBarButtons>
     </StyledCard>
   );
@@ -55,7 +50,7 @@ const StyledCard = styled.div`
 
 const MenuIcon = styled.span`
   position: fixed;
-  transform: translate(-50%, -20%);
+  transform: translate(-50%, 0%);
   font-size: 2em;
   color: #000000;
   transition: ease-out .3s;
