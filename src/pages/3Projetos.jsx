@@ -1,24 +1,16 @@
 import styled from "styled-components";
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
+import { useNavigate } from "react-router-dom";
+import NavBar from "../components/NavBar";
 
 export default function Projetos() {
-  useEffect(() => {
-    const onScroll = () => {
-      const section = document.getElementById('home');
-      const top = section.getBoundingClientRect().top;
-      if (top >= 0 && top < window.innerHeight) {
-        window.history.pushState("", "", "/home");
-      }
-    };
-    window.addEventListener('scroll', onScroll);
-  
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+  const navigate = useNavigate();
+  const [color, setColor] = useState(localStorage.getItem('color') || '000000');
+
   return (
     <Container>
-      <Main>
-        <h1>Projetos</h1>
-      </Main>
+      <NavBar />
+        <h1>ÁREA DE PROJETOS EM ANDAMENTO...</h1>
     </Container>
   );
 }
@@ -26,13 +18,10 @@ export default function Projetos() {
 const Container = styled.div`
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
-    background-color: ${props => (props.theme === 'dark' ? (props.theme.dark ? props.theme.dark.background : '') : (props.theme.light ? props.theme.light.background : ''))};
-`;
+    height: 100vh;
+    background-color: #000;
 
-const Main = styled.main`
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    h1 {
+        color: #fff;
+    }
 `;

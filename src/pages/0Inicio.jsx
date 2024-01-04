@@ -7,17 +7,9 @@ import WavesBackground from '../assets/backgrounds/BackgroundWave';
 export default function Inicio({color, setColor, hoverColor, setHoverColor}) {
   const navigate = useNavigate();
 
-  const handleMouseEnter = (newColor) => {
-    setHoverColor(newColor);
-  };
-
-  const handleMouseLeave = () => {
-    setHoverColor(null);
-  };
-
-  const NavigateToSobreMim = () => {
-    navigate('/sobre-mim');
-  };
+  const handleMouseEnter = (newColor) => {setHoverColor(newColor);};
+  const handleMouseLeave = () => {setHoverColor(null);};
+  const NavigateToSobreMim = () => {navigate('/sobre-mim');};
 
   return (
     <>
@@ -32,10 +24,10 @@ export default function Inicio({color, setColor, hoverColor, setHoverColor}) {
           <Color onMouseEnter={() => handleMouseEnter('00DEF0')} onMouseLeave={handleMouseLeave} onClick={() => setColor('00DEF0')} color='00DEF0' selected={color === '00DEF0'} />
           <Color onMouseEnter={() => handleMouseEnter('5391E0')} onMouseLeave={handleMouseLeave} onClick={() => setColor('5391E0')} color='5391E0' selected={color === '5391E0'} />
           <Color onMouseEnter={() => handleMouseEnter('C500E0')} onMouseLeave={handleMouseLeave} onClick={() => setColor('C500E0')} color='C500E0' selected={color === 'C500E0'} />
-          <Color onMouseEnter={() => handleMouseEnter('E02BC8')} onMouseLeave={handleMouseLeave} onClick={() => setColor('E02BC8')} color='E02BC8' selected={color === 'E02BC8'} />
           <Color onMouseEnter={() => handleMouseEnter('E00869')} onMouseLeave={handleMouseLeave} onClick={() => setColor('E00869')} color='E00869' selected={color === 'E00869'} />
           <Color onMouseEnter={() => handleMouseEnter('CF1101')} onMouseLeave={handleMouseLeave} onClick={() => setColor('CF1101')} color='CF1101' selected={color === 'CF1101'} />
-          <Color onMouseEnter={() => handleMouseEnter('FCBB28')} onMouseLeave={handleMouseLeave} onClick={() => setColor('FCBB28')} color='FCBB28' selected={color === 'FCBB28'} />
+          <Color onMouseEnter={() => handleMouseEnter('FF7609')} onMouseLeave={handleMouseLeave} onClick={() => setColor('FF7609')} color='FF7609' selected={color === 'FF7609'} />
+          <Color onMouseEnter={() => handleMouseEnter('FCBB28')} onMouseLeave={handleMouseLeave} onClick={() => setColor('FCBB28')} color='FCBB28' selected={color === 'FCBB28'} />    
         </ColorsMenu>
         <Continuar color={`#${hoverColor || color}`} onClick={()=> NavigateToSobreMim()}>Continuar</Continuar>
       </Main>

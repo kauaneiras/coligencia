@@ -17,7 +17,7 @@ class BackgroundWave extends React.Component {
       minWidth: 200.00,
       scale: 1.00,
       scaleMobile: 1.00,
-      color: 0x1b1b1b,
+      color: 0x70707,
       waveHeight: 10.00
     })
   }

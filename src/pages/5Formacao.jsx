@@ -1,27 +1,14 @@
 import styled from "styled-components";
 import React, {useEffect} from "react";
+import { useNavigate } from "react-router-dom";
+import NavBar from "../components/NavBar";
 
 export default function Formacao() {
-  useEffect(() => {
-    const onScroll = () => {
-      // Algoritmo para detectar se esta seção está na visualização
-      // e então atualizar a URL.
-      // Este é um exemplo simplificado:
-      const section = document.getElementById('home');
-      const top = section.getBoundingClientRect().top;
-      if (top >= 0 && top < window.innerHeight) {
-        window.history.pushState("", "", "/home");
-      }
-    };
-    window.addEventListener('scroll', onScroll);
-  
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+  const navigate = useNavigate();
   return (
     <Container>
-      <Main>
-        <h1>Formação</h1>
-      </Main>
+      <NavBar />
+        <h1>ÁREA DE FORMAÇÃO EM ANDAMENTO...</h1>
     </Container>
   );
 }
@@ -29,13 +16,10 @@ export default function Formacao() {
 const Container = styled.div`
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
-    background-color: ${props => (props.theme === 'dark' ? (props.theme.dark ? props.theme.dark.background : '') : (props.theme.light ? props.theme.light.background : ''))};
-`;
+    height: 100vh;
+    background-color: #000;
 
-const Main = styled.main`
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    h1 {
+        color: #fff;
+    }
 `;

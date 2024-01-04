@@ -8,7 +8,7 @@ import kauan from "../assets/images/kauan.png";
 
 export default function SobreMim(){
   const navigate = useNavigate();
-  const [color, setColor] = useState(localStorage.getItem('color') || '000000');
+  const [color, setColor] = useState(localStorage.getItem('color') || 'ffffff');
 
   const NavigateTo = (path) => {
     navigate(path);
