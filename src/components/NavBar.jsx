@@ -32,10 +32,11 @@ const hoverStyle = css`
   clip-path: circle(75% at 50% 50%);
   border-radius: 20px;
   box-shadow: 0px 3px 9px #${props => props.color}, 0px 3px 18px #${props => props.color};
-  background: transparent;
+  background: rgba(0, 0, 0, 1);
 `;
 
 const StyledCard = styled.div`
+  z-index: 1000;
   position: fixed;
   top: 0;
   left: 0;
